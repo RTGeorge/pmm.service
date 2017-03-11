@@ -17,7 +17,11 @@ class PmmHttpHandler(BaseHTTPServer.BaseHTTPRequestHandler):
         smapiRequest = SMAPIRequest(self.headers,self.rfile);
         result = smapiRequest.handle()
         if smapiRequest.dataFormat == 'SOAP':
-            self.mySuper.send_response(self, 200, result)
+            self.send_response(200)
+            self.send_header('Content-type', 'text/html')
+            self.end_headers()
+            self.wfile.write(result)
+            self.wfile.close()
         elif smapiRequest.dataFormat == 'JSON':
             self.mySuper.send_response(self, 200, 'JSONY')
         else:

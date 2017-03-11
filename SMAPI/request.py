@@ -26,5 +26,6 @@ class SMAPIRequest():
             self.content = body.rfile.read(content_len)
 
     def handle(self):
-       exec(self.method + '.execute()')
+       return globals()[self.method].execute()
+       #return execfile('SMAPI/actions/' + self.method + '.py')
         

@@ -1,5 +1,6 @@
 import BaseHTTPServer
 import conf
+from handler import PmmHttpHandler
 from SOAP.handler import SOAPHandler
 from SOAP.dispatcher import SOAPDispatcher
 
@@ -12,6 +13,7 @@ soapDispatcher = SOAPDispatcher(
         trace=True, debug=True,
         ns=True)
 
-pmmd = BaseHTTPServer.HTTPServer((conf.interface, conf.port), SOAPHandler)
-pmmd.dispatcher = soapDispatcher
+pmmd = BaseHTTPServer.HTTPServer((conf.interface, conf.port), PmmHttpHandler)
+#pmmd = BaseHTTPServer.HTTPServer((conf.interface, conf.port), SOAPHandler)
+##pmmd.dispatcher = soapDispatcher
 pmmd.serve_forever()

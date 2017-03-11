@@ -16,8 +16,6 @@ class SOAPHandler(BaseHTTPRequestHandler):
     #    print 'GOBLY2'
 
     def do_GET(self):
-        print 'GOBLY3'
-        #self.parent.send_response(self, 200, 'HI')
         """User viewable help information and wsdl"""
         args = self.path[1:].split("?")
         if self.path != "/" and args[0] not in self.server.dispatcher.methods.keys():

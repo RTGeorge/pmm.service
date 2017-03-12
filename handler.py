@@ -1,6 +1,5 @@
 import BaseHTTPServer
 from SMAPI.request import SMAPIRequest
-from SOAP.handler import SOAPHandler
 
 class PmmHttpHandler(BaseHTTPServer.BaseHTTPRequestHandler):
 
@@ -15,7 +14,7 @@ class PmmHttpHandler(BaseHTTPServer.BaseHTTPRequestHandler):
 
     def createSMAPIRequest(self):
         smapiRequest = SMAPIRequest(self.headers,self.rfile);
-        result = smapiRequest.handle()
+        result = smapiRequest.fullfill()
         if smapiRequest.dataFormat == 'SOAP':
             self.send_response(200)
             self.send_header('Content-type', 'text/html')

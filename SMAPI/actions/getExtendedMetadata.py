@@ -1,3 +1,5 @@
-def execute():
-  return 'HANDLING GETEXTENDEDMETADATA REQUEST'
+from ..itemTypes import *
+
+def execute(args):
+  return 'HANDLING GETEXTENDEDMETADATA REQUEST WITH ARGS' + str(args)
 

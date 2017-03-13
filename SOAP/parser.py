@@ -1,7 +1,8 @@
 from pysimplesoap.simplexml import SimpleXMLElement
 
+namespace = "http://www.sonos.com/Services/1.1"
+
 def parseSOAPRequest(xml):
-    namespace = "http://www.sonos.com/Services/1.1"
     args = {}
 
     try:
@@ -18,3 +19,8 @@ def parseSOAPRequest(xml):
     except:
         print('CRAZY EXCEPTION')
     return args
+
+def generateSOAPResponse(response):
+    #SOAPResponse = SimpleXMLElement(response, namespace)
+    SOAPResponse = response
+    return SOAPResponse

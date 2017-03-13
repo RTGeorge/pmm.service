@@ -17,7 +17,7 @@ class PmmHttpHandler(BaseHTTPServer.BaseHTTPRequestHandler):
         result = smapiRequest.fullfill()
         if smapiRequest.dataFormat == 'SOAP':
             self.send_response(200)
-            self.send_header('Content-type', 'text/html')
+            self.send_header('Content-type', 'ext/xml; charset=utf-8')
             self.end_headers()
             self.wfile.write(result)
             self.wfile.close()

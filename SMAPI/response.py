@@ -1,7 +1,6 @@
 from urlparse import urlparse
 from actions import *
 from SOAP.parser import parseSOAPRequest
-from SOAP.parser import generateSOAPResponse
 
 class SMAPIRequest():
 
@@ -32,9 +31,4 @@ class SMAPIRequest():
             self.dataFormat = 'JSON'
 
     def fullfill(self):
-        result = globals()[self.method].execute(self.args)
-        responseBody = result
-        if self.dataFormat == 'SOAP':
-            responseBody = generateSOAPResponse(result)
-        return responseBody
-   
+       return globals()[self.method].execute(self.args)

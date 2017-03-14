@@ -26,8 +26,9 @@ class SMAPIRequest():
             self.dataFormat = 'SOAP'
             actionSpec = urlparse(headers.getheader('SOAPAction'))
             self.version = actionSpec.path.split('/')[-1]
-            self.method = actionSpec.fragment
-            self.args = parseSOAPRequest(self.content)
+            self.method = actionSpec.fragment.strip('"')
+            print('THE METHODS: ' + self.method)
+            self.args = parseSOAPRequest(self.content, globals()[self.method].parameters)
         elif headers.getheader('JSONAction',''):
             self.dataFormat = 'JSON'
 

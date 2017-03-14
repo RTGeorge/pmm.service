@@ -1,4 +1,9 @@
+# -*- coding: utf-8 -*-
 from ..itemTypes import *
+
+parameters = {
+    'id': str
+}
 
 def execute(args):
     response = '''
@@ -9,18 +14,8 @@ def execute(args):
         <mediaMetadata>
           <id>{ID}</id>
           <itemType>track</itemType>
-          <title>Example Track</title>
-          <mimeType>audio/mp3</mimeType>
-          <trackMetadata>
-            <artistId>A:123456</artistId>
-            <artist>Dethklok</artist>
-            <albumid>M:123456</albumid>
-            <album>Dethalbum II</album>
-            <duration>343</duration>
-            <albumArtURI>http://example.com/images/aa/1.jpg</albumArtURI>
-            <canSkip>true</canSkip>
-            <canAddToFavorites>true</canAddToFavorites>
-          </trackMetadata>
+          <title>📈 Super Important Meeting #1📈</title>
+          <mimeType>audio/aac</mimeType>
         </mediaMetadata>
       </getExtendedMetadataResult>
     </getExtendedMetadataResponse>

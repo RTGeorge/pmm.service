@@ -2,7 +2,11 @@ from pysimplesoap.simplexml import SimpleXMLElement
 
 namespace = "http://www.sonos.com/Services/1.1"
 
-def parseSOAPRequest(xml):
+def parseSOAPRequest(xml, parameters):
+
+    print('THE XML: ' + xml)
+    print('\n')
+
     args = {}
 
     try:
@@ -15,7 +19,8 @@ def parseSOAPRequest(xml):
                 soap_uri = request.attributes()[k].value
 
         method = request('Body', ns=soap_uri).children()(0)
-        args = method.children().unmarshall({'id':str})
+        if parameters:
+            args = method.children().unmarshall(parameters)
     except:
         print('CRAZY EXCEPTION')
     return args

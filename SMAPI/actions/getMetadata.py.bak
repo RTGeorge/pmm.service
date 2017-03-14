@@ -1,0 +1,41 @@
+# -*- coding: utf-8 -*-
+from ..itemTypes import *
+
+parameters = {
+    'count': int,
+    'id': str,
+    'index': int,
+    'recursive': bool
+}
+
+def execute(args):
+    response = '''
+<s:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+  <s:Body>
+    <ns:getMetadataResponse xmlns="http://www.sonos.com/Services/1.1">
+      <ns:getMetadataResult>
+        <ns:index>0</index>
+        <ns:count>1</count>
+        <ns:total>1</total>
+        <ns:mediaMetadata>
+          <ns:id>track0001</ns:id>
+          <ns:itemType>track</ns:itemType>
+          <ns:title>Meeting1</ns:title>
+          <ns:genre>Business</ns:genre>
+          <ns:mimeType>audio/aac</ns:mimeType>
+          <ns:trackMetadata>
+            <ns:artistId>user:12345</ns:artistId>
+            <ns:artist>G</ns:artist>
+            <ns:genre>Business</ns:genre>
+            <ns:duration>36</ns:duration>
+            <ns:albumArtURI>https://s3-us-west-1.amazonaws.com/piday/meeting1.jpg</ns:albumArtURI>
+            <ns:canPlay>true</ns:canPlay>
+            <ns:canSkip>true</ns:canSkip>
+          </ns:trackMetadata>
+        </ns:mediaMetadata>
+      </ns:getMetadataResult>
+    </ns:getMetadataResponse>
+  </s:Body>
+</s:Envelope>
+'''
+    return response

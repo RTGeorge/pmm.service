@@ -1,5 +1,12 @@
 from ..itemTypes import *
 
+parameters = {
+    'id': str,
+    'term': str,
+    'index': int,
+    'count': int
+}
+
 def execute(args):
     response = '''
 <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">

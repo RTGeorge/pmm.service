@@ -9,6 +9,14 @@ class PmmHttpHandler(BaseHTTPServer.BaseHTTPRequestHandler):
     readme=readmeFile.read()
     readmeFile.close() 
 
+    stringsFile = open('strings.xml','r')
+    strings=stringsFile.read()
+    stringsFile.close() 
+    
+    protocol_version='HTTP/1.1'
+
+
+
     def unsupportedHttpMethodResponse(self):
         self.mySuper.send_response(self, 200, 'HTTP METHOD NOT SUPPORTED')
 
@@ -17,7 +25,7 @@ class PmmHttpHandler(BaseHTTPServer.BaseHTTPRequestHandler):
         result = smapiRequest.fullfill()
         if smapiRequest.dataFormat == 'SOAP':
             self.send_response(200)
-            self.send_header('Content-type', 'ext/xml; charset=utf-8')
+            self.send_header('Content-type', 'text/xml; charset=utf-8')
             self.end_headers()
             self.wfile.write(result)
             self.wfile.close()
@@ -31,7 +39,7 @@ class PmmHttpHandler(BaseHTTPServer.BaseHTTPRequestHandler):
     def do_DELETE(self):
         self.unsupportedHttpMethodResponse()
     def do_GET(self):
-        self.mySuper.send_response(self, 200, self.readme)
+        self.mySuper.send_response(self, 200, self.strings)
     def do_HEAD(self):
         self.mySuper.send_response(self, 200)
     def do_OPTIONS(self):

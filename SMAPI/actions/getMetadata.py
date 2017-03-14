@@ -15,8 +15,8 @@ def execute(args):
     <getMetadataResponse xmlns="http://www.sonos.com/Services/1.1">
       <getMetadataResult>
         <index>0</index>
-        <count>2</count>
-        <total>2</total>
+        <count>3</count>
+        <total>3</total>
         <mediaMetadata>
           <id>track0001</id>
           <itemType>track</itemType>
@@ -45,6 +45,22 @@ def execute(args):
             <genre>Business</genre>
             <duration>59</duration>
             <albumArtURI>https://s3-us-west-1.amazonaws.com/piday/meeting2.jpg</albumArtURI>
+            <canPlay>true</canPlay>
+            <canSkip>true</canSkip>
+          </trackMetadata>
+        </mediaMetadata>
+        <mediaMetadata>
+          <id>track0003</id>
+          <itemType>track</itemType>
+          <title>😎Meeting3😎</title>
+          <genre>Business</genre>
+          <mimeType>audio/aac</mimeType>
+          <trackMetadata>
+            <artistId>user:12345</artistId>
+            <artist>Jeff</artist>
+            <genre>Business</genre>
+            <duration>57</duration>
+            <albumArtURI>https://s3-us-west-1.amazonaws.com/piday/meeting3.jpg</albumArtURI>
             <canPlay>true</canPlay>
             <canSkip>true</canSkip>
           </trackMetadata>

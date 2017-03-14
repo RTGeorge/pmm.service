@@ -58,4 +58,29 @@ def execute(args):
    </s:Body>
 </s:Envelope>
 '''
+    elif args['id'] == 'track0003':
+        response = '''
+<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://www.sonos.com/Services/1.1">
+   <s:Body>
+      <ns:getMediaMetadataResponse>
+         <ns:getMediaMetadataResult>
+           <ns:id>track0003</ns:id>
+           <ns:itemType>track</ns:itemType>
+           <ns:title>😎Meeting3😎</ns:title>
+           <ns:genre>Business</ns:genre>
+           <ns:mimeType>audio/aac</ns:mimeType>
+           <ns:trackMetadata>
+             <ns:artistId>user:12345</ns:artistId>
+             <ns:artist>Jeff</ns:artist>
+             <ns:genre>Business</ns:genre>
+             <ns:duration>57</ns:duration>
+               <ns:albumArtURI>https://s3-us-west-1.amazonaws.com/piday/meeting3.jpg</ns:albumArtURI>
+               <ns:canPlay>true</ns:canPlay>
+               <ns:canSkip>true</ns:canSkip>
+            </ns:trackMetadata>
+         </ns:getMediaMetadataResult>
+      </ns:getMediaMetadataResponse>
+   </s:Body>
+</s:Envelope>
+'''
     return response

@@ -30,4 +30,14 @@ def execute(args):
    </soap:Body>
 </soap:Envelope>
 '''
+    elif args['id'] == 'track0003':
+        response = '''
+<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://www.sonos.com/Services/1.1">
+   <s:Body>
+      <ns:getMediaURIResponse>
+         <ns:getMediaURIResult>https://s3-us-west-1.amazonaws.com/piday/combined.m4a</ns:getMediaURIResult>
+      </ns:getMediaURIResponse>
+   </soap:Body>
+</soap:Envelope>
+'''
     return response
